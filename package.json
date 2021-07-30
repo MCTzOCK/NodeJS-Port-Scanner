@@ -4,10 +4,15 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {},
-  "author": "",
-  "license": "ISC",
+  "author": "MCTzOCK",
+  "license": "GPL-3.0",
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^8.1.0"
+  },
+  "homepage": "https://mctzock.de",
+  "repository": {
+    "url": "https://github.com/MCTzOCK/NodeJS-Port-Scanner",
+    "type": "github"
   }
 }
