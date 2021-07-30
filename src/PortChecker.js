@@ -8,6 +8,7 @@ class PortChecker {
         const minPort = props.minPort || 0;
         const maxPort = props.maxPort || 65535;
         const logOffline = props.logOffline || false;
+        const output = props.output || console.log;
 
         for (let i = minPort; i < maxPort; i++) {
             const client = new net.Socket();
@@ -17,17 +18,17 @@ class PortChecker {
             })
             client.setTimeout(3000);
             client.on('connect', () => {
-                console.log("[" + "ONLINE".green + "] " + i)
+                output("[" + "ONLINE".green + "] " + i)
                 client.end()
             })
             client.on('timeout', () => {
                 if(logOffline)
-                    console.log("[" + "OFFLINE".red + "] " + i)
+                    output("[" + "OFFLINE".red + "] " + i)
                 client.end()
             })
             client.on('error', () => {
                 if(logOffline)
-                    console.log("[" + "OFFLINE".red + "] " + i)
+                    output("[" + "OFFLINE".red + "] " + i)
                 client.end()
             })
         }
